@@ -54,12 +54,7 @@ router.get('/:word', (req, res) => {
   const dist = distance ? Math.min(Number(distance), MAX_EDIT_DISTANCE) : 1
   const suggestions = transducer.transduce(word, dist)
 
-  const corrector = new Corrections()
-  suggestions.forEach(result => corrector.add(result))
-
-  const corrections = corrector.correct(word)
-
-  res.json({ corrections, suggestions })
+  res.json({ suggestions })
 })
 
 export default router
