@@ -62,7 +62,7 @@ export const replacements = {
   'rnd': 'nd',
   'rst': 'st',
   // 'þ': 'ð',
-  'x': 'gs',
+  // 'x': 'gs',
   // 'x': 'ks',
   'gs': 'x',
   'ks': 'x',

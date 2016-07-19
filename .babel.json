@@ -1,0 +1,751 @@
+{
+  "{\"filename\":\"/code/server.js\",\"env\":{},\"retainLines\":false,\"highlightCode\":true,\"suppressDeprecationMessages\":false,\"presets\":[],\"plugins\":[[[],null],[[],null],[[],null]],\"ignore\":[],\"code\":true,\"metadata\":true,\"ast\":true,\"comments\":true,\"compact\":\"auto\",\"minified\":false,\"babelrc\":true,\"sourceType\":\"module\",\"moduleIds\":false,\"passPerPreset\":false}:6.10.4": {
+    "metadata": {
+      "usedHelpers": [
+        "interopRequireDefault"
+      ],
+      "marked": [],
+      "modules": {
+        "imports": [
+          {
+            "source": "express",
+            "imported": [
+              "default"
+            ],
+            "specifiers": [
+              {
+                "kind": "named",
+                "imported": "default",
+                "local": "express"
+              }
+            ]
+          },
+          {
+            "source": "cors",
+            "imported": [
+              "default"
+            ],
+            "specifiers": [
+              {
+                "kind": "named",
+                "imported": "default",
+                "local": "cors"
+              }
+            ]
+          },
+          {
+            "source": "compression",
+            "imported": [
+              "default"
+            ],
+            "specifiers": [
+              {
+                "kind": "named",
+                "imported": "default",
+                "local": "compression"
+              }
+            ]
+          },
+          {
+            "source": "response-time",
+            "imported": [
+              "default"
+            ],
+            "specifiers": [
+              {
+                "kind": "named",
+                "imported": "default",
+                "local": "responseTime"
+              }
+            ]
+          },
+          {
+            "source": "./api",
+            "imported": [
+              "default"
+            ],
+            "specifiers": [
+              {
+                "kind": "named",
+                "imported": "default",
+                "local": "api"
+              }
+            ]
+          }
+        ],
+        "exports": {
+          "exported": [],
+          "specifiers": []
+        }
+      }
+    },
+    "options": {
+      "filename": "/code/server.js",
+      "filenameRelative": "/code/server.js",
+      "env": {},
+      "retainLines": false,
+      "highlightCode": true,
+      "suppressDeprecationMessages": false,
+      "presets": [],
+      "plugins": [
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ]
+      ],
+      "ignore": [],
+      "code": true,
+      "metadata": true,
+      "ast": false,
+      "comments": true,
+      "compact": "auto",
+      "minified": false,
+      "sourceMap": "both",
+      "sourceMaps": "both",
+      "sourceMapTarget": "server.js",
+      "sourceFileName": "server.js",
+      "babelrc": false,
+      "sourceType": "module",
+      "moduleIds": false,
+      "passPerPreset": false,
+      "basename": "server"
+    },
+    "ignored": false,
+    "code": "'use strict';\n\nvar _express = require('express');\n\nvar _express2 = _interopRequireDefault(_express);\n\nvar _cors = require('cors');\n\nvar _cors2 = _interopRequireDefault(_cors);\n\nvar _compression = require('compression');\n\nvar _compression2 = _interopRequireDefault(_compression);\n\nvar _responseTime = require('response-time');\n\nvar _responseTime2 = _interopRequireDefault(_responseTime);\n\nvar _api = require('./api');\n\nvar _api2 = _interopRequireDefault(_api);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nconst app = (0, _express2.default)();\n\n// app.use(logger({\n//   name: 'request',\n//   streams: [{\n//     level: 'debug',\n//     stream: process.stdout,\n//   }],\n//   format: ':remote-address :incoming :method :url :status-code - :user-agent[family] :user-agent[major].:user-agent[minor] :user-agent[os] - :response-time ms',\n//   excludes: ['*'],\n// }))\n\n// import logger from 'express-bunyan-logger'\napp.use((0, _cors2.default)());\napp.use((0, _compression2.default)());\napp.use((0, _responseTime2.default)());\n\napp.use('/', _api2.default);\n\nconst server = app.listen(8000, () => {\n  const host = server.address().address;\n  const port = server.address().port;\n\n  console.log(`app running at http://${ host }:${ port }`);\n});\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNlcnZlci5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBOzs7O0FBQ0E7Ozs7QUFFQTs7OztBQUNBOzs7O0FBRUE7Ozs7OztBQUVBLE1BQU0sTUFBTSx3QkFBWjs7QUFFQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7QUFDQTtBQUNBO0FBQ0E7O0FBaEJBO0FBaUJBLElBQUksR0FBSixDQUFRLHFCQUFSO0FBQ0EsSUFBSSxHQUFKLENBQVEsNEJBQVI7QUFDQSxJQUFJLEdBQUosQ0FBUSw2QkFBUjs7QUFFQSxJQUFJLEdBQUosQ0FBUSxHQUFSOztBQUVBLE1BQU0sU0FBUyxJQUFJLE1BQUosQ0FBVyxJQUFYLEVBQWlCLE1BQU07QUFDcEMsUUFBTSxPQUFPLE9BQU8sT0FBUCxHQUFpQixPQUE5QjtBQUNBLFFBQU0sT0FBTyxPQUFPLE9BQVAsR0FBaUIsSUFBOUI7O0FBRUEsVUFBUSxHQUFSLENBQWEsMEJBQXdCLElBQUssTUFBRyxJQUFLLEdBQWxEO0FBQ0QsQ0FMYyxDQUFmIiwiZmlsZSI6InNlcnZlci5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBleHByZXNzIGZyb20gJ2V4cHJlc3MnXG5pbXBvcnQgY29ycyBmcm9tICdjb3JzJ1xuLy8gaW1wb3J0IGxvZ2dlciBmcm9tICdleHByZXNzLWJ1bnlhbi1sb2dnZXInXG5pbXBvcnQgY29tcHJlc3Npb24gZnJvbSAnY29tcHJlc3Npb24nXG5pbXBvcnQgcmVzcG9uc2VUaW1lIGZyb20gJ3Jlc3BvbnNlLXRpbWUnXG5cbmltcG9ydCBhcGkgZnJvbSAnLi9hcGknXG5cbmNvbnN0IGFwcCA9IGV4cHJlc3MoKVxuXG4vLyBhcHAudXNlKGxvZ2dlcih7XG4vLyAgIG5hbWU6ICdyZXF1ZXN0Jyxcbi8vICAgc3RyZWFtczogW3tcbi8vICAgICBsZXZlbDogJ2RlYnVnJyxcbi8vICAgICBzdHJlYW06IHByb2Nlc3Muc3Rkb3V0LFxuLy8gICB9XSxcbi8vICAgZm9ybWF0OiAnOnJlbW90ZS1hZGRyZXNzIDppbmNvbWluZyA6bWV0aG9kIDp1cmwgOnN0YXR1cy1jb2RlIC0gOnVzZXItYWdlbnRbZmFtaWx5XSA6dXNlci1hZ2VudFttYWpvcl0uOnVzZXItYWdlbnRbbWlub3JdIDp1c2VyLWFnZW50W29zXSAtIDpyZXNwb25zZS10aW1lIG1zJyxcbi8vICAgZXhjbHVkZXM6IFsnKiddLFxuLy8gfSkpXG5hcHAudXNlKGNvcnMoKSlcbmFwcC51c2UoY29tcHJlc3Npb24oKSlcbmFwcC51c2UocmVzcG9uc2VUaW1lKCkpXG5cbmFwcC51c2UoJy8nLCBhcGkpXG5cbmNvbnN0IHNlcnZlciA9IGFwcC5saXN0ZW4oODAwMCwgKCkgPT4ge1xuICBjb25zdCBob3N0ID0gc2VydmVyLmFkZHJlc3MoKS5hZGRyZXNzXG4gIGNvbnN0IHBvcnQgPSBzZXJ2ZXIuYWRkcmVzcygpLnBvcnRcblxuICBjb25zb2xlLmxvZyhgYXBwIHJ1bm5pbmcgYXQgaHR0cDovLyR7aG9zdH06JHtwb3J0fWApXG59KVxuIl19",
+    "ast": null,
+    "map": {
+      "version": 3,
+      "sources": [
+        "server.js"
+      ],
+      "names": [],
+      "mappings": ";;AAAA;;;;AACA;;;;AAEA;;;;AACA;;;;AAEA;;;;;;AAEA,MAAM,MAAM,wBAAZ;;AAEA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;;AAhBA;AAiBA,IAAI,GAAJ,CAAQ,qBAAR;AACA,IAAI,GAAJ,CAAQ,4BAAR;AACA,IAAI,GAAJ,CAAQ,6BAAR;;AAEA,IAAI,GAAJ,CAAQ,GAAR;;AAEA,MAAM,SAAS,IAAI,MAAJ,CAAW,IAAX,EAAiB,MAAM;AACpC,QAAM,OAAO,OAAO,OAAP,GAAiB,OAA9B;AACA,QAAM,OAAO,OAAO,OAAP,GAAiB,IAA9B;;AAEA,UAAQ,GAAR,CAAa,0BAAwB,IAAK,MAAG,IAAK,GAAlD;AACD,CALc,CAAf",
+      "file": "server.js",
+      "sourcesContent": [
+        "import express from 'express'\nimport cors from 'cors'\n// import logger from 'express-bunyan-logger'\nimport compression from 'compression'\nimport responseTime from 'response-time'\n\nimport api from './api'\n\nconst app = express()\n\n// app.use(logger({\n//   name: 'request',\n//   streams: [{\n//     level: 'debug',\n//     stream: process.stdout,\n//   }],\n//   format: ':remote-address :incoming :method :url :status-code - :user-agent[family] :user-agent[major].:user-agent[minor] :user-agent[os] - :response-time ms',\n//   excludes: ['*'],\n// }))\napp.use(cors())\napp.use(compression())\napp.use(responseTime())\n\napp.use('/', api)\n\nconst server = app.listen(8000, () => {\n  const host = server.address().address\n  const port = server.address().port\n\n  console.log(`app running at http://${host}:${port}`)\n})\n"
+      ]
+    },
+    "mtime": 1468867639000
+  },
+  "{\"filename\":\"/code/api/index.js\",\"env\":{},\"retainLines\":false,\"highlightCode\":true,\"suppressDeprecationMessages\":false,\"presets\":[],\"plugins\":[[[],null],[[],null],[[],null]],\"ignore\":[],\"code\":true,\"metadata\":true,\"ast\":true,\"comments\":true,\"compact\":\"auto\",\"minified\":false,\"babelrc\":true,\"sourceType\":\"module\",\"moduleIds\":false,\"passPerPreset\":false}:6.10.4": {
+    "metadata": {
+      "usedHelpers": [
+        "interopRequireDefault"
+      ],
+      "marked": [],
+      "modules": {
+        "imports": [
+          {
+            "source": "express",
+            "imported": [
+              "Router"
+            ],
+            "specifiers": [
+              {
+                "kind": "named",
+                "imported": "Router",
+                "local": "Router"
+              }
+            ]
+          },
+          {
+            "source": "./suggestions/route",
+            "imported": [
+              "default"
+            ],
+            "specifiers": [
+              {
+                "kind": "named",
+                "imported": "default",
+                "local": "suggestions"
+              }
+            ]
+          },
+          {
+            "source": "./corrections/route",
+            "imported": [
+              "default"
+            ],
+            "specifiers": [
+              {
+                "kind": "named",
+                "imported": "default",
+                "local": "corrections"
+              }
+            ]
+          }
+        ],
+        "exports": {
+          "exported": [],
+          "specifiers": []
+        }
+      }
+    },
+    "options": {
+      "filename": "/code/api/index.js",
+      "filenameRelative": "/code/api/index.js",
+      "env": {},
+      "retainLines": false,
+      "highlightCode": true,
+      "suppressDeprecationMessages": false,
+      "presets": [],
+      "plugins": [
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ]
+      ],
+      "ignore": [],
+      "code": true,
+      "metadata": true,
+      "ast": false,
+      "comments": true,
+      "compact": "auto",
+      "minified": false,
+      "sourceMap": "both",
+      "sourceMaps": "both",
+      "sourceMapTarget": "index.js",
+      "sourceFileName": "index.js",
+      "babelrc": false,
+      "sourceType": "module",
+      "moduleIds": false,
+      "passPerPreset": false,
+      "basename": "index"
+    },
+    "ignored": false,
+    "code": "'use strict';\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _express = require('express');\n\nvar _route = require('./suggestions/route');\n\nvar _route2 = _interopRequireDefault(_route);\n\nvar _route3 = require('./corrections/route');\n\nvar _route4 = _interopRequireDefault(_route3);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nconst router = new _express.Router();\n\nrouter.use('/suggestions', _route2.default);\nrouter.use('/corrections', _route4.default);\n\nexports.default = router;\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImluZGV4LmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7OztBQUFBOztBQUNBOzs7O0FBQ0E7Ozs7OztBQUVBLE1BQU0sU0FBUyxxQkFBZjs7QUFFQSxPQUFPLEdBQVAsQ0FBVyxjQUFYO0FBQ0EsT0FBTyxHQUFQLENBQVcsY0FBWDs7a0JBRWUsTSIsImZpbGUiOiJpbmRleC5qcyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IFJvdXRlciB9IGZyb20gJ2V4cHJlc3MnXG5pbXBvcnQgc3VnZ2VzdGlvbnMgZnJvbSAnLi9zdWdnZXN0aW9ucy9yb3V0ZSdcbmltcG9ydCBjb3JyZWN0aW9ucyBmcm9tICcuL2NvcnJlY3Rpb25zL3JvdXRlJ1xuXG5jb25zdCByb3V0ZXIgPSBuZXcgUm91dGVyKClcblxucm91dGVyLnVzZSgnL3N1Z2dlc3Rpb25zJywgc3VnZ2VzdGlvbnMpXG5yb3V0ZXIudXNlKCcvY29ycmVjdGlvbnMnLCBjb3JyZWN0aW9ucylcblxuZXhwb3J0IGRlZmF1bHQgcm91dGVyXG4iXX0=",
+    "ast": null,
+    "map": {
+      "version": 3,
+      "sources": [
+        "index.js"
+      ],
+      "names": [],
+      "mappings": ";;;;;;AAAA;;AACA;;;;AACA;;;;;;AAEA,MAAM,SAAS,qBAAf;;AAEA,OAAO,GAAP,CAAW,cAAX;AACA,OAAO,GAAP,CAAW,cAAX;;kBAEe,M",
+      "file": "index.js",
+      "sourcesContent": [
+        "import { Router } from 'express'\nimport suggestions from './suggestions/route'\nimport corrections from './corrections/route'\n\nconst router = new Router()\n\nrouter.use('/suggestions', suggestions)\nrouter.use('/corrections', corrections)\n\nexport default router\n"
+      ]
+    },
+    "mtime": 1468866530000
+  },
+  "{\"filename\":\"/code/api/suggestions/route.js\",\"env\":{},\"retainLines\":false,\"highlightCode\":true,\"suppressDeprecationMessages\":false,\"presets\":[],\"plugins\":[[[],null],[[],null],[[],null]],\"ignore\":[],\"code\":true,\"metadata\":true,\"ast\":true,\"comments\":true,\"compact\":\"auto\",\"minified\":false,\"babelrc\":true,\"sourceType\":\"module\",\"moduleIds\":false,\"passPerPreset\":false}:6.10.4": {
+    "metadata": {
+      "usedHelpers": [
+        "interopRequireDefault"
+      ],
+      "marked": [],
+      "modules": {
+        "imports": [
+          {
+            "source": "readline",
+            "imported": [
+              "default"
+            ],
+            "specifiers": [
+              {
+                "kind": "named",
+                "imported": "default",
+                "local": "readline"
+              }
+            ]
+          },
+          {
+            "source": "fs",
+            "imported": [
+              "default"
+            ],
+            "specifiers": [
+              {
+                "kind": "named",
+                "imported": "default",
+                "local": "fs"
+              }
+            ]
+          },
+          {
+            "source": "express",
+            "imported": [
+              "Router"
+            ],
+            "specifiers": [
+              {
+                "kind": "named",
+                "imported": "Router",
+                "local": "Router"
+              }
+            ]
+          },
+          {
+            "source": "liblevenshtein",
+            "imported": [
+              "default"
+            ],
+            "specifiers": [
+              {
+                "kind": "named",
+                "imported": "default",
+                "local": "levenshtein"
+              }
+            ]
+          }
+        ],
+        "exports": {
+          "exported": [],
+          "specifiers": []
+        }
+      }
+    },
+    "options": {
+      "filename": "/code/api/suggestions/route.js",
+      "filenameRelative": "/code/api/suggestions/route.js",
+      "env": {},
+      "retainLines": false,
+      "highlightCode": true,
+      "suppressDeprecationMessages": false,
+      "presets": [],
+      "plugins": [
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ]
+      ],
+      "ignore": [],
+      "code": true,
+      "metadata": true,
+      "ast": false,
+      "comments": true,
+      "compact": "auto",
+      "minified": false,
+      "sourceMap": "both",
+      "sourceMaps": "both",
+      "sourceMapTarget": "route.js",
+      "sourceFileName": "route.js",
+      "babelrc": false,
+      "sourceType": "module",
+      "moduleIds": false,
+      "passPerPreset": false,
+      "basename": "route"
+    },
+    "ignored": false,
+    "code": "'use strict';\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _readline = require('readline');\n\nvar _readline2 = _interopRequireDefault(_readline);\n\nvar _fs = require('fs');\n\nvar _fs2 = _interopRequireDefault(_fs);\n\nvar _express = require('express');\n\nvar _liblevenshtein = require('liblevenshtein');\n\nvar _liblevenshtein2 = _interopRequireDefault(_liblevenshtein);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nconst router = new _express.Router();\nconst MAX_EDIT_DISTANCE = 3;\n\nfunction buildDictionary(completionList) {\n  // Assume \"completionList\" is a list of terms you want to match against in\n  // fuzzy queries.\n  const builder = new _liblevenshtein2.default.Builder().dictionary(completionList) // generate spelling candidates from unsorted completionList\n  .algorithm('transposition') // use Levenshtein distance extended with transposition\n  // .sort_candidates(true)               // sort the spelling candidates before returning them\n  // .case_insensitive_sort(true)         // ignore character-casing while sorting terms\n  .include_distance(false) // just return the ordered terms (drop the distances)\n  .maximum_candidates(100); // only want the top-10 candidates\n\n  // Maximum number of spelling errors we will allow the spelling candidates to\n  // have, with regard to the query term.\n  return builder.build();\n}\n\nconst completionList = [];\nlet transducer;\n\nconst rl = _readline2.default.createInterface({\n  input: _fs2.default.createReadStream('./data/ordmyndalisti.txt')\n});\n\nrl.on('line', line => {\n  completionList.push(line);\n});\n\nrl.on('close', () => {\n  transducer = buildDictionary(completionList);\n});\n\nfunction isNumeric(n) {\n  return !isNaN(parseFloat(n)) && isFinite(n);\n}\n\nrouter.get('/:word', (req, res) => {\n  const { word } = req.params;\n  const { distance } = req.query;\n\n  if (distance && !isNumeric(distance)) {\n    res.status(400).send({ error: 'distance must be a number' });\n    return;\n  }\n\n  const dist = distance ? Math.min(Number(distance), MAX_EDIT_DISTANCE) : 2;\n  const suggestions = transducer.transduce(word, dist);\n\n  res.json({ suggestions });\n});\n\nexports.default = router;\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInJvdXRlLmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7OztBQUFBOzs7O0FBQ0E7Ozs7QUFDQTs7QUFDQTs7Ozs7O0FBRUEsTUFBTSxTQUFTLHFCQUFmO0FBQ0EsTUFBTSxvQkFBb0IsQ0FBMUI7O0FBRUEsU0FBUyxlQUFULENBQXlCLGNBQXpCLEVBQXlDO0FBQ3ZDO0FBQ0E7QUFDQSxRQUFNLFVBQVUsSUFBSSx5QkFBWSxPQUFoQixHQUNiLFVBRGEsQ0FDRixjQURFLENBQ2U7QUFEZixHQUViLFNBRmEsQ0FFSCxlQUZHLENBRXVCO0FBQ3JDO0FBQ0E7QUFKYyxHQUtiLGdCQUxhLENBS0ksS0FMSixDQUt1QjtBQUx2QixHQU1iLGtCQU5hLENBTU0sR0FOTixDQUFoQixDQU11Qzs7QUFFdkM7QUFDQTtBQUNBLFNBQU8sUUFBUSxLQUFSLEVBQVA7QUFDRDs7QUFFRCxNQUFNLGlCQUFpQixFQUF2QjtBQUNBLElBQUksVUFBSjs7QUFFQSxNQUFNLEtBQUssbUJBQVMsZUFBVCxDQUF5QjtBQUNsQyxTQUFPLGFBQUcsZ0JBQUgsQ0FBb0IsMEJBQXBCO0FBRDJCLENBQXpCLENBQVg7O0FBSUEsR0FBRyxFQUFILENBQU0sTUFBTixFQUFlLElBQUQsSUFBVTtBQUN0QixpQkFBZSxJQUFmLENBQW9CLElBQXBCO0FBQ0QsQ0FGRDs7QUFJQSxHQUFHLEVBQUgsQ0FBTSxPQUFOLEVBQWUsTUFBTTtBQUNuQixlQUFhLGdCQUFnQixjQUFoQixDQUFiO0FBQ0QsQ0FGRDs7QUFJQSxTQUFTLFNBQVQsQ0FBbUIsQ0FBbkIsRUFBc0I7QUFDcEIsU0FBTyxDQUFDLE1BQU0sV0FBVyxDQUFYLENBQU4sQ0FBRCxJQUF5QixTQUFTLENBQVQsQ0FBaEM7QUFDRDs7QUFFRCxPQUFPLEdBQVAsQ0FBVyxRQUFYLEVBQXFCLENBQUMsR0FBRCxFQUFNLEdBQU4sS0FBYztBQUNqQyxRQUFNLEVBQUUsSUFBRixLQUFXLElBQUksTUFBckI7QUFDQSxRQUFNLEVBQUUsUUFBRixLQUFlLElBQUksS0FBekI7O0FBRUEsTUFBSSxZQUFZLENBQUMsVUFBVSxRQUFWLENBQWpCLEVBQXNDO0FBQ3BDLFFBQUksTUFBSixDQUFXLEdBQVgsRUFBZ0IsSUFBaEIsQ0FBcUIsRUFBRSxPQUFPLDJCQUFULEVBQXJCO0FBQ0E7QUFDRDs7QUFFRCxRQUFNLE9BQU8sV0FBVyxLQUFLLEdBQUwsQ0FBUyxPQUFPLFFBQVAsQ0FBVCxFQUEyQixpQkFBM0IsQ0FBWCxHQUEyRCxDQUF4RTtBQUNBLFFBQU0sY0FBYyxXQUFXLFNBQVgsQ0FBcUIsSUFBckIsRUFBMkIsSUFBM0IsQ0FBcEI7O0FBRUEsTUFBSSxJQUFKLENBQVMsRUFBRSxXQUFGLEVBQVQ7QUFDRCxDQWJEOztrQkFlZSxNIiwiZmlsZSI6InJvdXRlLmpzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHJlYWRsaW5lIGZyb20gJ3JlYWRsaW5lJ1xuaW1wb3J0IGZzIGZyb20gJ2ZzJ1xuaW1wb3J0IHsgUm91dGVyIH0gZnJvbSAnZXhwcmVzcydcbmltcG9ydCBsZXZlbnNodGVpbiBmcm9tICdsaWJsZXZlbnNodGVpbidcblxuY29uc3Qgcm91dGVyID0gbmV3IFJvdXRlcigpXG5jb25zdCBNQVhfRURJVF9ESVNUQU5DRSA9IDNcblxuZnVuY3Rpb24gYnVpbGREaWN0aW9uYXJ5KGNvbXBsZXRpb25MaXN0KSB7XG4gIC8vIEFzc3VtZSBcImNvbXBsZXRpb25MaXN0XCIgaXMgYSBsaXN0IG9mIHRlcm1zIHlvdSB3YW50IHRvIG1hdGNoIGFnYWluc3QgaW5cbiAgLy8gZnV6enkgcXVlcmllcy5cbiAgY29uc3QgYnVpbGRlciA9IG5ldyBsZXZlbnNodGVpbi5CdWlsZGVyKClcbiAgICAuZGljdGlvbmFyeShjb21wbGV0aW9uTGlzdCkgIC8vIGdlbmVyYXRlIHNwZWxsaW5nIGNhbmRpZGF0ZXMgZnJvbSB1bnNvcnRlZCBjb21wbGV0aW9uTGlzdFxuICAgIC5hbGdvcml0aG0oJ3RyYW5zcG9zaXRpb24nKSAgICAgICAgICAvLyB1c2UgTGV2ZW5zaHRlaW4gZGlzdGFuY2UgZXh0ZW5kZWQgd2l0aCB0cmFuc3Bvc2l0aW9uXG4gICAgLy8gLnNvcnRfY2FuZGlkYXRlcyh0cnVlKSAgICAgICAgICAgICAgIC8vIHNvcnQgdGhlIHNwZWxsaW5nIGNhbmRpZGF0ZXMgYmVmb3JlIHJldHVybmluZyB0aGVtXG4gICAgLy8gLmNhc2VfaW5zZW5zaXRpdmVfc29ydCh0cnVlKSAgICAgICAgIC8vIGlnbm9yZSBjaGFyYWN0ZXItY2FzaW5nIHdoaWxlIHNvcnRpbmcgdGVybXNcbiAgICAuaW5jbHVkZV9kaXN0YW5jZShmYWxzZSkgICAgICAgICAgICAgLy8ganVzdCByZXR1cm4gdGhlIG9yZGVyZWQgdGVybXMgKGRyb3AgdGhlIGRpc3RhbmNlcylcbiAgICAubWF4aW11bV9jYW5kaWRhdGVzKDEwMCkgICAgICAgICAgICAgLy8gb25seSB3YW50IHRoZSB0b3AtMTAgY2FuZGlkYXRlc1xuXG4gIC8vIE1heGltdW0gbnVtYmVyIG9mIHNwZWxsaW5nIGVycm9ycyB3ZSB3aWxsIGFsbG93IHRoZSBzcGVsbGluZyBjYW5kaWRhdGVzIHRvXG4gIC8vIGhhdmUsIHdpdGggcmVnYXJkIHRvIHRoZSBxdWVyeSB0ZXJtLlxuICByZXR1cm4gYnVpbGRlci5idWlsZCgpXG59XG5cbmNvbnN0IGNvbXBsZXRpb25MaXN0ID0gW11cbmxldCB0cmFuc2R1Y2VyXG5cbmNvbnN0IHJsID0gcmVhZGxpbmUuY3JlYXRlSW50ZXJmYWNlKHtcbiAgaW5wdXQ6IGZzLmNyZWF0ZVJlYWRTdHJlYW0oJy4vZGF0YS9vcmRteW5kYWxpc3RpLnR4dCcpLFxufSlcblxucmwub24oJ2xpbmUnLCAobGluZSkgPT4ge1xuICBjb21wbGV0aW9uTGlzdC5wdXNoKGxpbmUpXG59KVxuXG5ybC5vbignY2xvc2UnLCAoKSA9PiB7XG4gIHRyYW5zZHVjZXIgPSBidWlsZERpY3Rpb25hcnkoY29tcGxldGlvbkxpc3QpXG59KVxuXG5mdW5jdGlvbiBpc051bWVyaWMobikge1xuICByZXR1cm4gIWlzTmFOKHBhcnNlRmxvYXQobikpICYmIGlzRmluaXRlKG4pXG59XG5cbnJvdXRlci5nZXQoJy86d29yZCcsIChyZXEsIHJlcykgPT4ge1xuICBjb25zdCB7IHdvcmQgfSA9IHJlcS5wYXJhbXNcbiAgY29uc3QgeyBkaXN0YW5jZSB9ID0gcmVxLnF1ZXJ5XG5cbiAgaWYgKGRpc3RhbmNlICYmICFpc051bWVyaWMoZGlzdGFuY2UpKSB7XG4gICAgcmVzLnN0YXR1cyg0MDApLnNlbmQoeyBlcnJvcjogJ2Rpc3RhbmNlIG11c3QgYmUgYSBudW1iZXInIH0pXG4gICAgcmV0dXJuXG4gIH1cblxuICBjb25zdCBkaXN0ID0gZGlzdGFuY2UgPyBNYXRoLm1pbihOdW1iZXIoZGlzdGFuY2UpLCBNQVhfRURJVF9ESVNUQU5DRSkgOiAyXG4gIGNvbnN0IHN1Z2dlc3Rpb25zID0gdHJhbnNkdWNlci50cmFuc2R1Y2Uod29yZCwgZGlzdClcblxuICByZXMuanNvbih7IHN1Z2dlc3Rpb25zIH0pXG59KVxuXG5leHBvcnQgZGVmYXVsdCByb3V0ZXJcbiJdfQ==",
+    "ast": null,
+    "map": {
+      "version": 3,
+      "sources": [
+        "route.js"
+      ],
+      "names": [],
+      "mappings": ";;;;;;AAAA;;;;AACA;;;;AACA;;AACA;;;;;;AAEA,MAAM,SAAS,qBAAf;AACA,MAAM,oBAAoB,CAA1B;;AAEA,SAAS,eAAT,CAAyB,cAAzB,EAAyC;AACvC;AACA;AACA,QAAM,UAAU,IAAI,yBAAY,OAAhB,GACb,UADa,CACF,cADE,CACe;AADf,GAEb,SAFa,CAEH,eAFG,CAEuB;AACrC;AACA;AAJc,GAKb,gBALa,CAKI,KALJ,CAKuB;AALvB,GAMb,kBANa,CAMM,GANN,CAAhB,CAMuC;;AAEvC;AACA;AACA,SAAO,QAAQ,KAAR,EAAP;AACD;;AAED,MAAM,iBAAiB,EAAvB;AACA,IAAI,UAAJ;;AAEA,MAAM,KAAK,mBAAS,eAAT,CAAyB;AAClC,SAAO,aAAG,gBAAH,CAAoB,0BAApB;AAD2B,CAAzB,CAAX;;AAIA,GAAG,EAAH,CAAM,MAAN,EAAe,IAAD,IAAU;AACtB,iBAAe,IAAf,CAAoB,IAApB;AACD,CAFD;;AAIA,GAAG,EAAH,CAAM,OAAN,EAAe,MAAM;AACnB,eAAa,gBAAgB,cAAhB,CAAb;AACD,CAFD;;AAIA,SAAS,SAAT,CAAmB,CAAnB,EAAsB;AACpB,SAAO,CAAC,MAAM,WAAW,CAAX,CAAN,CAAD,IAAyB,SAAS,CAAT,CAAhC;AACD;;AAED,OAAO,GAAP,CAAW,QAAX,EAAqB,CAAC,GAAD,EAAM,GAAN,KAAc;AACjC,QAAM,EAAE,IAAF,KAAW,IAAI,MAArB;AACA,QAAM,EAAE,QAAF,KAAe,IAAI,KAAzB;;AAEA,MAAI,YAAY,CAAC,UAAU,QAAV,CAAjB,EAAsC;AACpC,QAAI,MAAJ,CAAW,GAAX,EAAgB,IAAhB,CAAqB,EAAE,OAAO,2BAAT,EAArB;AACA;AACD;;AAED,QAAM,OAAO,WAAW,KAAK,GAAL,CAAS,OAAO,QAAP,CAAT,EAA2B,iBAA3B,CAAX,GAA2D,CAAxE;AACA,QAAM,cAAc,WAAW,SAAX,CAAqB,IAArB,EAA2B,IAA3B,CAApB;;AAEA,MAAI,IAAJ,CAAS,EAAE,WAAF,EAAT;AACD,CAbD;;kBAee,M",
+      "file": "route.js",
+      "sourcesContent": [
+        "import readline from 'readline'\nimport fs from 'fs'\nimport { Router } from 'express'\nimport levenshtein from 'liblevenshtein'\n\nconst router = new Router()\nconst MAX_EDIT_DISTANCE = 3\n\nfunction buildDictionary(completionList) {\n  // Assume \"completionList\" is a list of terms you want to match against in\n  // fuzzy queries.\n  const builder = new levenshtein.Builder()\n    .dictionary(completionList)  // generate spelling candidates from unsorted completionList\n    .algorithm('transposition')          // use Levenshtein distance extended with transposition\n    // .sort_candidates(true)               // sort the spelling candidates before returning them\n    // .case_insensitive_sort(true)         // ignore character-casing while sorting terms\n    .include_distance(false)             // just return the ordered terms (drop the distances)\n    .maximum_candidates(100)             // only want the top-10 candidates\n\n  // Maximum number of spelling errors we will allow the spelling candidates to\n  // have, with regard to the query term.\n  return builder.build()\n}\n\nconst completionList = []\nlet transducer\n\nconst rl = readline.createInterface({\n  input: fs.createReadStream('./data/ordmyndalisti.txt'),\n})\n\nrl.on('line', (line) => {\n  completionList.push(line)\n})\n\nrl.on('close', () => {\n  transducer = buildDictionary(completionList)\n})\n\nfunction isNumeric(n) {\n  return !isNaN(parseFloat(n)) && isFinite(n)\n}\n\nrouter.get('/:word', (req, res) => {\n  const { word } = req.params\n  const { distance } = req.query\n\n  if (distance && !isNumeric(distance)) {\n    res.status(400).send({ error: 'distance must be a number' })\n    return\n  }\n\n  const dist = distance ? Math.min(Number(distance), MAX_EDIT_DISTANCE) : 2\n  const suggestions = transducer.transduce(word, dist)\n\n  res.json({ suggestions })\n})\n\nexport default router\n"
+      ]
+    },
+    "mtime": 1468868021000
+  },
+  "{\"filename\":\"/code/suggestions/corrections.js\",\"env\":{},\"retainLines\":false,\"highlightCode\":true,\"suppressDeprecationMessages\":false,\"presets\":[],\"plugins\":[[[],null],[[],null],[[],null]],\"ignore\":[],\"code\":true,\"metadata\":true,\"ast\":true,\"comments\":true,\"compact\":\"auto\",\"minified\":false,\"babelrc\":true,\"sourceType\":\"module\",\"moduleIds\":false,\"passPerPreset\":false}:6.10.4": {
+    "metadata": {
+      "usedHelpers": [
+        "asyncToGenerator",
+        "interopRequireDefault"
+      ],
+      "marked": [],
+      "modules": {
+        "imports": [
+          {
+            "source": "./replacements",
+            "imported": [
+              "replacements"
+            ],
+            "specifiers": [
+              {
+                "kind": "named",
+                "imported": "replacements",
+                "local": "replacements"
+              }
+            ]
+          },
+          {
+            "source": "levelup",
+            "imported": [
+              "default"
+            ],
+            "specifiers": [
+              {
+                "kind": "named",
+                "imported": "default",
+                "local": "level"
+              }
+            ]
+          },
+          {
+            "source": "./async-db",
+            "imported": [
+              "default"
+            ],
+            "specifiers": [
+              {
+                "kind": "named",
+                "imported": "default",
+                "local": "AsyncDb"
+              }
+            ]
+          }
+        ],
+        "exports": {
+          "exported": [
+            "normalize",
+            "str",
+            "reps"
+          ],
+          "specifiers": [
+            {
+              "kind": "local",
+              "local": "normalize",
+              "exported": "normalize"
+            },
+            {
+              "kind": "local",
+              "local": "str",
+              "exported": "str"
+            },
+            {
+              "kind": "local",
+              "local": "reps",
+              "exported": "reps"
+            }
+          ]
+        }
+      }
+    },
+    "options": {
+      "filename": "/code/suggestions/corrections.js",
+      "filenameRelative": "/code/suggestions/corrections.js",
+      "env": {},
+      "retainLines": false,
+      "highlightCode": true,
+      "suppressDeprecationMessages": false,
+      "presets": [],
+      "plugins": [
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ]
+      ],
+      "ignore": [],
+      "code": true,
+      "metadata": true,
+      "ast": false,
+      "comments": true,
+      "compact": "auto",
+      "minified": false,
+      "sourceMap": "both",
+      "sourceMaps": "both",
+      "sourceMapTarget": "corrections.js",
+      "sourceFileName": "corrections.js",
+      "babelrc": false,
+      "sourceType": "module",
+      "moduleIds": false,
+      "passPerPreset": false,
+      "basename": "corrections"
+    },
+    "ignored": false,
+    "code": "'use strict';\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.normalize = normalize;\n\nvar _replacements = require('./replacements');\n\nvar _levelup = require('levelup');\n\nvar _levelup2 = _interopRequireDefault(_levelup);\n\nvar _asyncDb = require('./async-db');\n\nvar _asyncDb2 = _interopRequireDefault(_asyncDb);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nfunction _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { return step(\"next\", value); }, function (err) { return step(\"throw\", err); }); } } return step(\"next\"); }); }; }\n\nfunction normalize(str, reps) {\n  return Object.keys(reps).reduce((curr, key) => curr.replace(key, reps[key]), str);\n}\n\nclass Corrections {\n  constructor(reps = _replacements.replacements, db) {\n    this.replacements = reps;\n    this.db = new _asyncDb2.default((0, _levelup2.default)('./db', {\n      valueEncoding: 'json',\n      db\n    }));\n  }\n\n  add(word) {\n    var _this = this;\n\n    return _asyncToGenerator(function* () {\n      const normalized = normalize(word, _this.replacements);\n      const corrections = (yield _this.db.get(normalized)) || [];\n      return _this.db.put(normalized, [...corrections, word]);\n    })();\n  }\n\n  correct(word) {\n    var _this2 = this;\n\n    return _asyncToGenerator(function* () {\n      return (yield _this2.db.get(normalize(word, _this2.replacements))) || [];\n    })();\n  }\n}\n\nexports.default = Corrections;\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNvcnJlY3Rpb25zLmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7O1FBSWdCLFMsR0FBQSxTOztBQUpoQjs7QUFDQTs7OztBQUNBOzs7Ozs7OztBQUVPLFNBQVMsU0FBVCxDQUFtQixHQUFuQixFQUF3QixJQUF4QixFQUE4QjtBQUNuQyxTQUFPLE9BQU8sSUFBUCxDQUFZLElBQVosRUFBa0IsTUFBbEIsQ0FBeUIsQ0FBQyxJQUFELEVBQU8sR0FBUCxLQUM5QixLQUFLLE9BQUwsQ0FBYSxHQUFiLEVBQWtCLEtBQUssR0FBTCxDQUFsQixDQURLLEVBQ3lCLEdBRHpCLENBQVA7QUFFRDs7QUFFRCxNQUFNLFdBQU4sQ0FBa0I7QUFDaEIsY0FBWSxpQ0FBWixFQUFpQyxFQUFqQyxFQUFxQztBQUNuQyxTQUFLLFlBQUwsR0FBb0IsSUFBcEI7QUFDQSxTQUFLLEVBQUwsR0FBVSxzQkFBWSx1QkFBTSxNQUFOLEVBQWM7QUFDbEMscUJBQWUsTUFEbUI7QUFFbEM7QUFGa0MsS0FBZCxDQUFaLENBQVY7QUFJRDs7QUFFSyxLQUFOLENBQVUsSUFBVixFQUFnQjtBQUFBOztBQUFBO0FBQ2QsWUFBTSxhQUFhLFVBQVUsSUFBVixFQUFnQixNQUFLLFlBQXJCLENBQW5CO0FBQ0EsWUFBTSxjQUFjLE9BQU0sTUFBSyxFQUFMLENBQVEsR0FBUixDQUFZLFVBQVosQ0FBTixLQUFpQyxFQUFyRDtBQUNBLGFBQU8sTUFBSyxFQUFMLENBQVEsR0FBUixDQUFZLFVBQVosRUFBd0IsQ0FBQyxHQUFHLFdBQUosRUFBaUIsSUFBakIsQ0FBeEIsQ0FBUDtBQUhjO0FBSWY7O0FBRUssU0FBTixDQUFjLElBQWQsRUFBb0I7QUFBQTs7QUFBQTtBQUNsQixhQUFPLE9BQU0sT0FBSyxFQUFMLENBQVEsR0FBUixDQUFZLFVBQVUsSUFBVixFQUFnQixPQUFLLFlBQXJCLENBQVosQ0FBTixLQUF5RCxFQUFoRTtBQURrQjtBQUVuQjtBQWpCZTs7a0JBb0JILFciLCJmaWxlIjoiY29ycmVjdGlvbnMuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyByZXBsYWNlbWVudHMgfSBmcm9tICcuL3JlcGxhY2VtZW50cydcbmltcG9ydCBsZXZlbCBmcm9tICdsZXZlbHVwJ1xuaW1wb3J0IEFzeW5jRGIgZnJvbSAnLi9hc3luYy1kYidcblxuZXhwb3J0IGZ1bmN0aW9uIG5vcm1hbGl6ZShzdHIsIHJlcHMpIHtcbiAgcmV0dXJuIE9iamVjdC5rZXlzKHJlcHMpLnJlZHVjZSgoY3Vyciwga2V5KSA9PlxuICAgIGN1cnIucmVwbGFjZShrZXksIHJlcHNba2V5XSksIHN0cilcbn1cblxuY2xhc3MgQ29ycmVjdGlvbnMge1xuICBjb25zdHJ1Y3RvcihyZXBzID0gcmVwbGFjZW1lbnRzLCBkYikge1xuICAgIHRoaXMucmVwbGFjZW1lbnRzID0gcmVwc1xuICAgIHRoaXMuZGIgPSBuZXcgQXN5bmNEYihsZXZlbCgnLi9kYicsIHtcbiAgICAgIHZhbHVlRW5jb2Rpbmc6ICdqc29uJyxcbiAgICAgIGRiLFxuICAgIH0pKVxuICB9XG5cbiAgYXN5bmMgYWRkKHdvcmQpIHtcbiAgICBjb25zdCBub3JtYWxpemVkID0gbm9ybWFsaXplKHdvcmQsIHRoaXMucmVwbGFjZW1lbnRzKVxuICAgIGNvbnN0IGNvcnJlY3Rpb25zID0gYXdhaXQgdGhpcy5kYi5nZXQobm9ybWFsaXplZCkgfHwgW11cbiAgICByZXR1cm4gdGhpcy5kYi5wdXQobm9ybWFsaXplZCwgWy4uLmNvcnJlY3Rpb25zLCB3b3JkXSlcbiAgfVxuXG4gIGFzeW5jIGNvcnJlY3Qod29yZCkge1xuICAgIHJldHVybiBhd2FpdCB0aGlzLmRiLmdldChub3JtYWxpemUod29yZCwgdGhpcy5yZXBsYWNlbWVudHMpKSB8fCBbXVxuICB9XG59XG5cbmV4cG9ydCBkZWZhdWx0IENvcnJlY3Rpb25zXG4iXX0=",
+    "ast": null,
+    "map": {
+      "version": 3,
+      "sources": [
+        "corrections.js"
+      ],
+      "names": [],
+      "mappings": ";;;;;QAIgB,S,GAAA,S;;AAJhB;;AACA;;;;AACA;;;;;;;;AAEO,SAAS,SAAT,CAAmB,GAAnB,EAAwB,IAAxB,EAA8B;AACnC,SAAO,OAAO,IAAP,CAAY,IAAZ,EAAkB,MAAlB,CAAyB,CAAC,IAAD,EAAO,GAAP,KAC9B,KAAK,OAAL,CAAa,GAAb,EAAkB,KAAK,GAAL,CAAlB,CADK,EACyB,GADzB,CAAP;AAED;;AAED,MAAM,WAAN,CAAkB;AAChB,cAAY,iCAAZ,EAAiC,EAAjC,EAAqC;AACnC,SAAK,YAAL,GAAoB,IAApB;AACA,SAAK,EAAL,GAAU,sBAAY,uBAAM,MAAN,EAAc;AAClC,qBAAe,MADmB;AAElC;AAFkC,KAAd,CAAZ,CAAV;AAID;;AAEK,KAAN,CAAU,IAAV,EAAgB;AAAA;;AAAA;AACd,YAAM,aAAa,UAAU,IAAV,EAAgB,MAAK,YAArB,CAAnB;AACA,YAAM,cAAc,OAAM,MAAK,EAAL,CAAQ,GAAR,CAAY,UAAZ,CAAN,KAAiC,EAArD;AACA,aAAO,MAAK,EAAL,CAAQ,GAAR,CAAY,UAAZ,EAAwB,CAAC,GAAG,WAAJ,EAAiB,IAAjB,CAAxB,CAAP;AAHc;AAIf;;AAEK,SAAN,CAAc,IAAd,EAAoB;AAAA;;AAAA;AAClB,aAAO,OAAM,OAAK,EAAL,CAAQ,GAAR,CAAY,UAAU,IAAV,EAAgB,OAAK,YAArB,CAAZ,CAAN,KAAyD,EAAhE;AADkB;AAEnB;AAjBe;;kBAoBH,W",
+      "file": "corrections.js",
+      "sourcesContent": [
+        "import { replacements } from './replacements'\nimport level from 'levelup'\nimport AsyncDb from './async-db'\n\nexport function normalize(str, reps) {\n  return Object.keys(reps).reduce((curr, key) =>\n    curr.replace(key, reps[key]), str)\n}\n\nclass Corrections {\n  constructor(reps = replacements, db) {\n    this.replacements = reps\n    this.db = new AsyncDb(level('./db', {\n      valueEncoding: 'json',\n      db,\n    }))\n  }\n\n  async add(word) {\n    const normalized = normalize(word, this.replacements)\n    const corrections = await this.db.get(normalized) || []\n    return this.db.put(normalized, [...corrections, word])\n  }\n\n  async correct(word) {\n    return await this.db.get(normalize(word, this.replacements)) || []\n  }\n}\n\nexport default Corrections\n"
+      ]
+    },
+    "mtime": 1468716688000
+  },
+  "{\"filename\":\"/code/suggestions/replacements.js\",\"env\":{},\"retainLines\":false,\"highlightCode\":true,\"suppressDeprecationMessages\":false,\"presets\":[],\"plugins\":[[[],null],[[],null],[[],null]],\"ignore\":[],\"code\":true,\"metadata\":true,\"ast\":true,\"comments\":true,\"compact\":\"auto\",\"minified\":false,\"babelrc\":true,\"sourceType\":\"module\",\"moduleIds\":false,\"passPerPreset\":false}:6.10.4": {
+    "metadata": {
+      "usedHelpers": [],
+      "marked": [],
+      "modules": {
+        "imports": [],
+        "exports": {
+          "exported": [
+            "replacements"
+          ],
+          "specifiers": [
+            {
+              "kind": "local",
+              "local": "replacements",
+              "exported": "replacements"
+            }
+          ]
+        }
+      }
+    },
+    "options": {
+      "filename": "/code/suggestions/replacements.js",
+      "filenameRelative": "/code/suggestions/replacements.js",
+      "env": {},
+      "retainLines": false,
+      "highlightCode": true,
+      "suppressDeprecationMessages": false,
+      "presets": [],
+      "plugins": [
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ]
+      ],
+      "ignore": [],
+      "code": true,
+      "metadata": true,
+      "ast": false,
+      "comments": true,
+      "compact": "auto",
+      "minified": false,
+      "sourceMap": "both",
+      "sourceMaps": "both",
+      "sourceMapTarget": "replacements.js",
+      "sourceFileName": "replacements.js",
+      "babelrc": false,
+      "sourceType": "module",
+      "moduleIds": false,
+      "passPerPreset": false,
+      "basename": "replacements"
+    },
+    "ignored": false,
+    "code": "'use strict';\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nconst replacements = exports.replacements = {\n  'á': 'a',\n  'é': 'e',\n  'ó': 'o',\n  'ö': 'o',\n  'ú': 'u',\n  'ý': 'y',\n  'æ': 'ae',\n  'ð': 'd',\n  'þ': 'th',\n  // 'þ': 'p',\n  'y': 'i',\n  'i': 'y',\n  // 'ý': 'í',\n  'í': 'ý',\n  'ang': 'áng',\n  'eng': 'eing',\n  // 'eng': 'eyng',\n  'ing': 'íng',\n  // 'ing': 'ýng',\n  'ung': 'úng',\n  'yng': 'íng',\n  // 'yng': 'ýng',\n  'öng': 'aung',\n  'ank': 'ánk',\n  'enk': 'eink',\n  // 'enk': 'eynk',\n  'ink': 'ínk',\n  // 'ink': 'ýnk',\n  'unk': 'únk',\n  'ynk': 'ínk',\n  // 'ynk': 'ýnk',\n  'önk': 'aunk',\n  'agi': 'ægi',\n  'egi': 'eigi',\n  // 'egi': 'eygi',\n  'igi': 'ígi',\n  // 'igi': 'ýgi',\n  'ogi': 'oji',\n  'ugi': 'uji',\n  'ygi': 'yji',\n  'ögi': 'augi',\n  'f': 'v',\n  'hv': 'kv',\n  'll': 'dl',\n  'nn': 'dn',\n  'fnd': 'md',\n  // 'fnd': 'mt',\n  'fl': 'bl',\n  'fn': 'bn',\n  'rl': 'rdl',\n  'rn': 'rdn',\n  'sl': 'sdl',\n  'sn': 'sdn',\n  't': 'gt',\n  // 't': 'kt',\n  'ófi': 'ói',\n  'ófa': 'óa',\n  'úfa': 'úa',\n  'nl': 'ngl',\n  'gld': 'lgd',\n  'rnd': 'nd',\n  'rst': 'st',\n  // 'þ': 'ð',\n  'x': 'gs',\n  // 'x': 'ks',\n  'gs': 'x',\n  'ks': 'x'\n};\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInJlcGxhY2VtZW50cy5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOzs7OztBQUFPLE1BQU0sc0NBQWU7QUFDMUIsT0FBSyxHQURxQjtBQUUxQixPQUFLLEdBRnFCO0FBRzFCLE9BQUssR0FIcUI7QUFJMUIsT0FBSyxHQUpxQjtBQUsxQixPQUFLLEdBTHFCO0FBTTFCLE9BQUssR0FOcUI7QUFPMUIsT0FBSyxJQVBxQjtBQVExQixPQUFLLEdBUnFCO0FBUzFCLE9BQUssSUFUcUI7QUFVMUI7QUFDQSxPQUFLLEdBWHFCO0FBWTFCLE9BQUssR0FacUI7QUFhMUI7QUFDQSxPQUFLLEdBZHFCO0FBZTFCLFNBQU8sS0FmbUI7QUFnQjFCLFNBQU8sTUFoQm1CO0FBaUIxQjtBQUNBLFNBQU8sS0FsQm1CO0FBbUIxQjtBQUNBLFNBQU8sS0FwQm1CO0FBcUIxQixTQUFPLEtBckJtQjtBQXNCMUI7QUFDQSxTQUFPLE1BdkJtQjtBQXdCMUIsU0FBTyxLQXhCbUI7QUF5QjFCLFNBQU8sTUF6Qm1CO0FBMEIxQjtBQUNBLFNBQU8sS0EzQm1CO0FBNEIxQjtBQUNBLFNBQU8sS0E3Qm1CO0FBOEIxQixTQUFPLEtBOUJtQjtBQStCMUI7QUFDQSxTQUFPLE1BaENtQjtBQWlDMUIsU0FBTyxLQWpDbUI7QUFrQzFCLFNBQU8sTUFsQ21CO0FBbUMxQjtBQUNBLFNBQU8sS0FwQ21CO0FBcUMxQjtBQUNBLFNBQU8sS0F0Q21CO0FBdUMxQixTQUFPLEtBdkNtQjtBQXdDMUIsU0FBTyxLQXhDbUI7QUF5QzFCLFNBQU8sTUF6Q21CO0FBMEMxQixPQUFLLEdBMUNxQjtBQTJDMUIsUUFBTSxJQTNDb0I7QUE0QzFCLFFBQU0sSUE1Q29CO0FBNkMxQixRQUFNLElBN0NvQjtBQThDMUIsU0FBTyxJQTlDbUI7QUErQzFCO0FBQ0EsUUFBTSxJQWhEb0I7QUFpRDFCLFFBQU0sSUFqRG9CO0FBa0QxQixRQUFNLEtBbERvQjtBQW1EMUIsUUFBTSxLQW5Eb0I7QUFvRDFCLFFBQU0sS0FwRG9CO0FBcUQxQixRQUFNLEtBckRvQjtBQXNEMUIsT0FBSyxJQXREcUI7QUF1RDFCO0FBQ0EsU0FBTyxJQXhEbUI7QUF5RDFCLFNBQU8sSUF6RG1CO0FBMEQxQixTQUFPLElBMURtQjtBQTJEMUIsUUFBTSxLQTNEb0I7QUE0RDFCLFNBQU8sS0E1RG1CO0FBNkQxQixTQUFPLElBN0RtQjtBQThEMUIsU0FBTyxJQTlEbUI7QUErRDFCO0FBQ0EsT0FBSyxJQWhFcUI7QUFpRTFCO0FBQ0EsUUFBTSxHQWxFb0I7QUFtRTFCLFFBQU07QUFuRW9CLENBQXJCIiwiZmlsZSI6InJlcGxhY2VtZW50cy5qcyIsInNvdXJjZXNDb250ZW50IjpbImV4cG9ydCBjb25zdCByZXBsYWNlbWVudHMgPSB7XG4gICfDoSc6ICdhJyxcbiAgJ8OpJzogJ2UnLFxuICAnw7MnOiAnbycsXG4gICfDtic6ICdvJyxcbiAgJ8O6JzogJ3UnLFxuICAnw70nOiAneScsXG4gICfDpic6ICdhZScsXG4gICfDsCc6ICdkJyxcbiAgJ8O+JzogJ3RoJyxcbiAgLy8gJ8O+JzogJ3AnLFxuICAneSc6ICdpJyxcbiAgJ2knOiAneScsXG4gIC8vICfDvSc6ICfDrScsXG4gICfDrSc6ICfDvScsXG4gICdhbmcnOiAnw6FuZycsXG4gICdlbmcnOiAnZWluZycsXG4gIC8vICdlbmcnOiAnZXluZycsXG4gICdpbmcnOiAnw61uZycsXG4gIC8vICdpbmcnOiAnw71uZycsXG4gICd1bmcnOiAnw7puZycsXG4gICd5bmcnOiAnw61uZycsXG4gIC8vICd5bmcnOiAnw71uZycsXG4gICfDtm5nJzogJ2F1bmcnLFxuICAnYW5rJzogJ8OhbmsnLFxuICAnZW5rJzogJ2VpbmsnLFxuICAvLyAnZW5rJzogJ2V5bmsnLFxuICAnaW5rJzogJ8OtbmsnLFxuICAvLyAnaW5rJzogJ8O9bmsnLFxuICAndW5rJzogJ8O6bmsnLFxuICAneW5rJzogJ8OtbmsnLFxuICAvLyAneW5rJzogJ8O9bmsnLFxuICAnw7Zuayc6ICdhdW5rJyxcbiAgJ2FnaSc6ICfDpmdpJyxcbiAgJ2VnaSc6ICdlaWdpJyxcbiAgLy8gJ2VnaSc6ICdleWdpJyxcbiAgJ2lnaSc6ICfDrWdpJyxcbiAgLy8gJ2lnaSc6ICfDvWdpJyxcbiAgJ29naSc6ICdvamknLFxuICAndWdpJzogJ3VqaScsXG4gICd5Z2knOiAneWppJyxcbiAgJ8O2Z2knOiAnYXVnaScsXG4gICdmJzogJ3YnLFxuICAnaHYnOiAna3YnLFxuICAnbGwnOiAnZGwnLFxuICAnbm4nOiAnZG4nLFxuICAnZm5kJzogJ21kJyxcbiAgLy8gJ2ZuZCc6ICdtdCcsXG4gICdmbCc6ICdibCcsXG4gICdmbic6ICdibicsXG4gICdybCc6ICdyZGwnLFxuICAncm4nOiAncmRuJyxcbiAgJ3NsJzogJ3NkbCcsXG4gICdzbic6ICdzZG4nLFxuICAndCc6ICdndCcsXG4gIC8vICd0JzogJ2t0JyxcbiAgJ8OzZmknOiAnw7NpJyxcbiAgJ8OzZmEnOiAnw7NhJyxcbiAgJ8O6ZmEnOiAnw7phJyxcbiAgJ25sJzogJ25nbCcsXG4gICdnbGQnOiAnbGdkJyxcbiAgJ3JuZCc6ICduZCcsXG4gICdyc3QnOiAnc3QnLFxuICAvLyAnw74nOiAnw7AnLFxuICAneCc6ICdncycsXG4gIC8vICd4JzogJ2tzJyxcbiAgJ2dzJzogJ3gnLFxuICAna3MnOiAneCcsXG59XG4iXX0=",
+    "ast": null,
+    "map": {
+      "version": 3,
+      "sources": [
+        "replacements.js"
+      ],
+      "names": [],
+      "mappings": ";;;;;AAAO,MAAM,sCAAe;AAC1B,OAAK,GADqB;AAE1B,OAAK,GAFqB;AAG1B,OAAK,GAHqB;AAI1B,OAAK,GAJqB;AAK1B,OAAK,GALqB;AAM1B,OAAK,GANqB;AAO1B,OAAK,IAPqB;AAQ1B,OAAK,GARqB;AAS1B,OAAK,IATqB;AAU1B;AACA,OAAK,GAXqB;AAY1B,OAAK,GAZqB;AAa1B;AACA,OAAK,GAdqB;AAe1B,SAAO,KAfmB;AAgB1B,SAAO,MAhBmB;AAiB1B;AACA,SAAO,KAlBmB;AAmB1B;AACA,SAAO,KApBmB;AAqB1B,SAAO,KArBmB;AAsB1B;AACA,SAAO,MAvBmB;AAwB1B,SAAO,KAxBmB;AAyB1B,SAAO,MAzBmB;AA0B1B;AACA,SAAO,KA3BmB;AA4B1B;AACA,SAAO,KA7BmB;AA8B1B,SAAO,KA9BmB;AA+B1B;AACA,SAAO,MAhCmB;AAiC1B,SAAO,KAjCmB;AAkC1B,SAAO,MAlCmB;AAmC1B;AACA,SAAO,KApCmB;AAqC1B;AACA,SAAO,KAtCmB;AAuC1B,SAAO,KAvCmB;AAwC1B,SAAO,KAxCmB;AAyC1B,SAAO,MAzCmB;AA0C1B,OAAK,GA1CqB;AA2C1B,QAAM,IA3CoB;AA4C1B,QAAM,IA5CoB;AA6C1B,QAAM,IA7CoB;AA8C1B,SAAO,IA9CmB;AA+C1B;AACA,QAAM,IAhDoB;AAiD1B,QAAM,IAjDoB;AAkD1B,QAAM,KAlDoB;AAmD1B,QAAM,KAnDoB;AAoD1B,QAAM,KApDoB;AAqD1B,QAAM,KArDoB;AAsD1B,OAAK,IAtDqB;AAuD1B;AACA,SAAO,IAxDmB;AAyD1B,SAAO,IAzDmB;AA0D1B,SAAO,IA1DmB;AA2D1B,QAAM,KA3DoB;AA4D1B,SAAO,KA5DmB;AA6D1B,SAAO,IA7DmB;AA8D1B,SAAO,IA9DmB;AA+D1B;AACA,OAAK,IAhEqB;AAiE1B;AACA,QAAM,GAlEoB;AAmE1B,QAAM;AAnEoB,CAArB",
+      "file": "replacements.js",
+      "sourcesContent": [
+        "export const replacements = {\n  'á': 'a',\n  'é': 'e',\n  'ó': 'o',\n  'ö': 'o',\n  'ú': 'u',\n  'ý': 'y',\n  'æ': 'ae',\n  'ð': 'd',\n  'þ': 'th',\n  // 'þ': 'p',\n  'y': 'i',\n  'i': 'y',\n  // 'ý': 'í',\n  'í': 'ý',\n  'ang': 'áng',\n  'eng': 'eing',\n  // 'eng': 'eyng',\n  'ing': 'íng',\n  // 'ing': 'ýng',\n  'ung': 'úng',\n  'yng': 'íng',\n  // 'yng': 'ýng',\n  'öng': 'aung',\n  'ank': 'ánk',\n  'enk': 'eink',\n  // 'enk': 'eynk',\n  'ink': 'ínk',\n  // 'ink': 'ýnk',\n  'unk': 'únk',\n  'ynk': 'ínk',\n  // 'ynk': 'ýnk',\n  'önk': 'aunk',\n  'agi': 'ægi',\n  'egi': 'eigi',\n  // 'egi': 'eygi',\n  'igi': 'ígi',\n  // 'igi': 'ýgi',\n  'ogi': 'oji',\n  'ugi': 'uji',\n  'ygi': 'yji',\n  'ögi': 'augi',\n  'f': 'v',\n  'hv': 'kv',\n  'll': 'dl',\n  'nn': 'dn',\n  'fnd': 'md',\n  // 'fnd': 'mt',\n  'fl': 'bl',\n  'fn': 'bn',\n  'rl': 'rdl',\n  'rn': 'rdn',\n  'sl': 'sdl',\n  'sn': 'sdn',\n  't': 'gt',\n  // 't': 'kt',\n  'ófi': 'ói',\n  'ófa': 'óa',\n  'úfa': 'úa',\n  'nl': 'ngl',\n  'gld': 'lgd',\n  'rnd': 'nd',\n  'rst': 'st',\n  // 'þ': 'ð',\n  'x': 'gs',\n  // 'x': 'ks',\n  'gs': 'x',\n  'ks': 'x',\n}\n"
+      ]
+    },
+    "mtime": 1468716772000
+  },
+  "{\"filename\":\"/code/suggestions/async-db.js\",\"env\":{},\"retainLines\":false,\"highlightCode\":true,\"suppressDeprecationMessages\":false,\"presets\":[],\"plugins\":[[[],null],[[],null],[[],null]],\"ignore\":[],\"code\":true,\"metadata\":true,\"ast\":true,\"comments\":true,\"compact\":\"auto\",\"minified\":false,\"babelrc\":true,\"sourceType\":\"module\",\"moduleIds\":false,\"passPerPreset\":false}:6.10.4": {
+    "metadata": {
+      "usedHelpers": [],
+      "marked": [],
+      "modules": {
+        "imports": [],
+        "exports": {
+          "exported": [
+            "AsyncDb"
+          ],
+          "specifiers": [
+            {
+              "kind": "local",
+              "local": "AsyncDb",
+              "exported": "default"
+            }
+          ]
+        }
+      }
+    },
+    "options": {
+      "filename": "/code/suggestions/async-db.js",
+      "filenameRelative": "/code/suggestions/async-db.js",
+      "env": {},
+      "retainLines": false,
+      "highlightCode": true,
+      "suppressDeprecationMessages": false,
+      "presets": [],
+      "plugins": [
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ]
+      ],
+      "ignore": [],
+      "code": true,
+      "metadata": true,
+      "ast": false,
+      "comments": true,
+      "compact": "auto",
+      "minified": false,
+      "sourceMap": "both",
+      "sourceMaps": "both",
+      "sourceMapTarget": "async-db.js",
+      "sourceFileName": "async-db.js",
+      "babelrc": false,
+      "sourceType": "module",
+      "moduleIds": false,
+      "passPerPreset": false,
+      "basename": "async-db"
+    },
+    "ignored": false,
+    "code": "'use strict';\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nclass AsyncDb {\n  constructor(db) {\n    this.db = db;\n  }\n\n  get(key) {\n    return new Promise((resolve, reject) => this.db.get(key, (err, result) => {\n      if (err && err.type === 'NotFoundError') resolve(null);\n      return err ? reject(err) : resolve(result);\n    }));\n  }\n\n  put(key, value) {\n    return new Promise((resolve, reject) => this.db.put(key, value, err => err ? reject(err) : resolve()));\n  }\n}\nexports.default = AsyncDb;\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImFzeW5jLWRiLmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7O0FBQWUsTUFBTSxPQUFOLENBQWM7QUFDM0IsY0FBWSxFQUFaLEVBQWdCO0FBQ2QsU0FBSyxFQUFMLEdBQVUsRUFBVjtBQUNEOztBQUVELE1BQUksR0FBSixFQUFTO0FBQ1AsV0FBTyxJQUFJLE9BQUosQ0FBWSxDQUFDLE9BQUQsRUFBVSxNQUFWLEtBQ2pCLEtBQUssRUFBTCxDQUFRLEdBQVIsQ0FBWSxHQUFaLEVBQWlCLENBQUMsR0FBRCxFQUFNLE1BQU4sS0FBaUI7QUFDaEMsVUFBSSxPQUFPLElBQUksSUFBSixLQUFhLGVBQXhCLEVBQXlDLFFBQVEsSUFBUjtBQUN6QyxhQUFPLE1BQU0sT0FBTyxHQUFQLENBQU4sR0FBb0IsUUFBUSxNQUFSLENBQTNCO0FBQ0QsS0FIRCxDQURLLENBQVA7QUFLRDs7QUFFRCxNQUFJLEdBQUosRUFBUyxLQUFULEVBQWdCO0FBQ2QsV0FBTyxJQUFJLE9BQUosQ0FBWSxDQUFDLE9BQUQsRUFBVSxNQUFWLEtBQ2pCLEtBQUssRUFBTCxDQUFRLEdBQVIsQ0FBWSxHQUFaLEVBQWlCLEtBQWpCLEVBQXdCLE9BQ3RCLE1BQU0sT0FBTyxHQUFQLENBQU4sR0FBb0IsU0FEdEIsQ0FESyxDQUFQO0FBR0Q7QUFqQjBCO2tCQUFSLE8iLCJmaWxlIjoiYXN5bmMtZGIuanMiLCJzb3VyY2VzQ29udGVudCI6WyJleHBvcnQgZGVmYXVsdCBjbGFzcyBBc3luY0RiIHtcbiAgY29uc3RydWN0b3IoZGIpIHtcbiAgICB0aGlzLmRiID0gZGJcbiAgfVxuXG4gIGdldChrZXkpIHtcbiAgICByZXR1cm4gbmV3IFByb21pc2UoKHJlc29sdmUsIHJlamVjdCkgPT5cbiAgICAgIHRoaXMuZGIuZ2V0KGtleSwgKGVyciwgcmVzdWx0KSA9PiB7XG4gICAgICAgIGlmIChlcnIgJiYgZXJyLnR5cGUgPT09ICdOb3RGb3VuZEVycm9yJykgcmVzb2x2ZShudWxsKVxuICAgICAgICByZXR1cm4gZXJyID8gcmVqZWN0KGVycikgOiByZXNvbHZlKHJlc3VsdClcbiAgICAgIH0pKVxuICB9XG5cbiAgcHV0KGtleSwgdmFsdWUpIHtcbiAgICByZXR1cm4gbmV3IFByb21pc2UoKHJlc29sdmUsIHJlamVjdCkgPT5cbiAgICAgIHRoaXMuZGIucHV0KGtleSwgdmFsdWUsIGVyciA9PlxuICAgICAgICBlcnIgPyByZWplY3QoZXJyKSA6IHJlc29sdmUoKSkpXG4gIH1cbn1cbiJdfQ==",
+    "ast": null,
+    "map": {
+      "version": 3,
+      "sources": [
+        "async-db.js"
+      ],
+      "names": [],
+      "mappings": ";;;;;AAAe,MAAM,OAAN,CAAc;AAC3B,cAAY,EAAZ,EAAgB;AACd,SAAK,EAAL,GAAU,EAAV;AACD;;AAED,MAAI,GAAJ,EAAS;AACP,WAAO,IAAI,OAAJ,CAAY,CAAC,OAAD,EAAU,MAAV,KACjB,KAAK,EAAL,CAAQ,GAAR,CAAY,GAAZ,EAAiB,CAAC,GAAD,EAAM,MAAN,KAAiB;AAChC,UAAI,OAAO,IAAI,IAAJ,KAAa,eAAxB,EAAyC,QAAQ,IAAR;AACzC,aAAO,MAAM,OAAO,GAAP,CAAN,GAAoB,QAAQ,MAAR,CAA3B;AACD,KAHD,CADK,CAAP;AAKD;;AAED,MAAI,GAAJ,EAAS,KAAT,EAAgB;AACd,WAAO,IAAI,OAAJ,CAAY,CAAC,OAAD,EAAU,MAAV,KACjB,KAAK,EAAL,CAAQ,GAAR,CAAY,GAAZ,EAAiB,KAAjB,EAAwB,OACtB,MAAM,OAAO,GAAP,CAAN,GAAoB,SADtB,CADK,CAAP;AAGD;AAjB0B;kBAAR,O",
+      "file": "async-db.js",
+      "sourcesContent": [
+        "export default class AsyncDb {\n  constructor(db) {\n    this.db = db\n  }\n\n  get(key) {\n    return new Promise((resolve, reject) =>\n      this.db.get(key, (err, result) => {\n        if (err && err.type === 'NotFoundError') resolve(null)\n        return err ? reject(err) : resolve(result)\n      }))\n  }\n\n  put(key, value) {\n    return new Promise((resolve, reject) =>\n      this.db.put(key, value, err =>\n        err ? reject(err) : resolve()))\n  }\n}\n"
+      ]
+    },
+    "mtime": 1468709577000
+  },
+  "{\"filename\":\"/code/api/corrections/route.js\",\"env\":{},\"retainLines\":false,\"highlightCode\":true,\"suppressDeprecationMessages\":false,\"presets\":[],\"plugins\":[[[],null],[[],null],[[],null]],\"ignore\":[],\"code\":true,\"metadata\":true,\"ast\":true,\"comments\":true,\"compact\":\"auto\",\"minified\":false,\"babelrc\":true,\"sourceType\":\"module\",\"moduleIds\":false,\"passPerPreset\":false}:6.10.4": {
+    "metadata": {
+      "usedHelpers": [
+        "interopRequireDefault"
+      ],
+      "marked": [],
+      "modules": {
+        "imports": [
+          {
+            "source": "express",
+            "imported": [
+              "Router"
+            ],
+            "specifiers": [
+              {
+                "kind": "named",
+                "imported": "Router",
+                "local": "Router"
+              }
+            ]
+          },
+          {
+            "source": "../../suggestions/corrections",
+            "imported": [
+              "default"
+            ],
+            "specifiers": [
+              {
+                "kind": "named",
+                "imported": "default",
+                "local": "Corrections"
+              }
+            ]
+          }
+        ],
+        "exports": {
+          "exported": [],
+          "specifiers": []
+        }
+      }
+    },
+    "options": {
+      "filename": "/code/api/corrections/route.js",
+      "filenameRelative": "/code/api/corrections/route.js",
+      "env": {},
+      "retainLines": false,
+      "highlightCode": true,
+      "suppressDeprecationMessages": false,
+      "presets": [],
+      "plugins": [
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ]
+      ],
+      "ignore": [],
+      "code": true,
+      "metadata": true,
+      "ast": false,
+      "comments": true,
+      "compact": "auto",
+      "minified": false,
+      "sourceMap": "both",
+      "sourceMaps": "both",
+      "sourceMapTarget": "route.js",
+      "sourceFileName": "route.js",
+      "babelrc": false,
+      "sourceType": "module",
+      "moduleIds": false,
+      "passPerPreset": false,
+      "basename": "route"
+    },
+    "ignored": false,
+    "code": "'use strict';\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\n\nvar _express = require('express');\n\nvar _corrections = require('../../suggestions/corrections');\n\nvar _corrections2 = _interopRequireDefault(_corrections);\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\nconst router = new _express.Router();\nconst corrections = new _corrections2.default();\n\nrouter.get('/:word', (req, res, next) => {\n  corrections.correct(req.params.word).then(results => res.json(results), next);\n});\n\nexports.default = router;\n//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInJvdXRlLmpzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiI7Ozs7OztBQUFBOztBQUNBOzs7Ozs7QUFFQSxNQUFNLFNBQVMscUJBQWY7QUFDQSxNQUFNLGNBQWMsMkJBQXBCOztBQUVBLE9BQU8sR0FBUCxDQUFXLFFBQVgsRUFBcUIsQ0FBQyxHQUFELEVBQU0sR0FBTixFQUFXLElBQVgsS0FBb0I7QUFDdkMsY0FBWSxPQUFaLENBQW9CLElBQUksTUFBSixDQUFXLElBQS9CLEVBQ0csSUFESCxDQUNRLFdBQVcsSUFBSSxJQUFKLENBQVMsT0FBVCxDQURuQixFQUNzQyxJQUR0QztBQUVELENBSEQ7O2tCQUtlLE0iLCJmaWxlIjoicm91dGUuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBSb3V0ZXIgfSBmcm9tICdleHByZXNzJ1xuaW1wb3J0IENvcnJlY3Rpb25zIGZyb20gJy4uLy4uL3N1Z2dlc3Rpb25zL2NvcnJlY3Rpb25zJ1xuXG5jb25zdCByb3V0ZXIgPSBuZXcgUm91dGVyKClcbmNvbnN0IGNvcnJlY3Rpb25zID0gbmV3IENvcnJlY3Rpb25zKClcblxucm91dGVyLmdldCgnLzp3b3JkJywgKHJlcSwgcmVzLCBuZXh0KSA9PiB7XG4gIGNvcnJlY3Rpb25zLmNvcnJlY3QocmVxLnBhcmFtcy53b3JkKVxuICAgIC50aGVuKHJlc3VsdHMgPT4gcmVzLmpzb24ocmVzdWx0cyksIG5leHQpXG59KVxuXG5leHBvcnQgZGVmYXVsdCByb3V0ZXJcbiJdfQ==",
+    "ast": null,
+    "map": {
+      "version": 3,
+      "sources": [
+        "route.js"
+      ],
+      "names": [],
+      "mappings": ";;;;;;AAAA;;AACA;;;;;;AAEA,MAAM,SAAS,qBAAf;AACA,MAAM,cAAc,2BAApB;;AAEA,OAAO,GAAP,CAAW,QAAX,EAAqB,CAAC,GAAD,EAAM,GAAN,EAAW,IAAX,KAAoB;AACvC,cAAY,OAAZ,CAAoB,IAAI,MAAJ,CAAW,IAA/B,EACG,IADH,CACQ,WAAW,IAAI,IAAJ,CAAS,OAAT,CADnB,EACsC,IADtC;AAED,CAHD;;kBAKe,M",
+      "file": "route.js",
+      "sourcesContent": [
+        "import { Router } from 'express'\nimport Corrections from '../../suggestions/corrections'\n\nconst router = new Router()\nconst corrections = new Corrections()\n\nrouter.get('/:word', (req, res, next) => {\n  corrections.correct(req.params.word)\n    .then(results => res.json(results), next)\n})\n\nexport default router\n"
+      ]
+    },
+    "mtime": 1468866530000
+  }
+}

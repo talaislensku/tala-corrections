@@ -1,13 +1,15 @@
 FROM node:6
 
-WORKDIR /code
+ENV HOME=/code
+ENV NPM_CONFIG_LOGLEVEL warn
 
-ADD package.json /code/package.json
+COPY package.json $HOME/
 
-RUN npm config set production && npm install
+WORKDIR $HOME
+RUN npm install
 
-ADD . /code
+ADD . $HOME
 
 EXPOSE 8000
 
-CMD [ "npm", "start" ]
+CMD ["npm", "start"]
